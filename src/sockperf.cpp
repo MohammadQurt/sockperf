@@ -2700,8 +2700,7 @@ int prepare_socket(int fd, struct fds_data *p_data)
             } else {
                 log_dbg("vma_api->register_recv_callback successful registered");
             }
-        }
-        else if (!rc && (s_user_params.is_vmazcopyread && g_vma_api)) {
+        } else if (!rc && (s_user_params.is_vmazcopyread && g_vma_api)) {
             s_fd_max_zcopy = _max(s_fd_max_zcopy, fd);
             g_zeroCopyData[fd] = new ZeroCopyData();
             g_zeroCopyData[fd]->allocate();
