@@ -51,8 +51,8 @@ int read_int_from_sys_file(const char *path);
 
 // inline functions
 //------------------------------------------------------------------------------
-static inline int msg_recvfrom(int fd, uint8_t *buf, int nbytes,
-                               struct sockaddr_in *recvfrom_addr, uint8_t **zcopy_pkt_addr) {
+static inline int msg_recvfrom(int fd, uint8_t *buf, int nbytes, struct sockaddr_in *recvfrom_addr,
+                               uint8_t **zcopy_pkt_addr) {
     int ret = 0;
     socklen_t size = sizeof(struct sockaddr_in);
     int flags = 0;
@@ -104,7 +104,8 @@ static inline int msg_recvfrom(int fd, uint8_t *buf, int nbytes,
 
                         pkt = &z_ptr->m_pkts->pkts[0];
 
-                        // Make receive address point to the beginning of returned recvfrom_zcopy buffer.
+                        // Make receive address point to the beginning of returned recvfrom_zcopy
+                        // buffer.
                         *zcopy_pkt_addr = (uint8_t *)pkt->iov[z_ptr->m_pkt_index].iov_base;
 
                         while (z_ptr->m_pkt_index < pkt->sz_iov) {
